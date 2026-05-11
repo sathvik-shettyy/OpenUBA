@@ -1,47 +1,42 @@
-# Core web framework (UI + backend)
+# ---------------- CORE API (OpenUBA UI backend) ----------------
 fastapi==0.104.1
 uvicorn[standard]==0.24.0
-python-multipart==0.0.6
 
-# Data layer (lightweight only)
-sqlalchemy==2.0.23
-pymongo==3.10.1
-
-# Validation / config
 pydantic==2.5.0
 pydantic-settings==2.1.0
 email-validator==2.1.0.post1
+python-multipart==0.0.6
 
-# Auth
+# ---------------- DATABASE ----------------
+sqlalchemy==2.0.23
+psycopg2-binary==2.9.9
+alembic==1.12.1
+
+# ---------------- AUTH ----------------
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
 bcrypt==4.0.1
 
-# HTTP utilities
+# ---------------- UTILITIES ----------------
 requests==2.31.0
-httpx==0.25.2
-
-# Basic utilities
 pyyaml==6.0.1
-python-slugify
-
-# Scheduling (keep minimal use)
-apscheduler==3.10.4
-
-# Logging
+python-slugify==8.0.4
 coloredlogs==10.0
 
-# Optional UI/backend helpers
+# ---------------- SCHEDULING / STREAMING ----------------
+apscheduler==3.10.4
 sse-starlette==1.8.2
 
-# Migration support (optional but useful)
-alembic==1.12.1
+# ---------------- DATA (lightweight, prebuilt wheels only) ----------------
+numpy==1.26.4
+pandas==2.1.4
 
-# Core compute libs (pinned safe versions for py3.11 wheels)
-numpy>=1.26,<2.0
-pandas>=2.0,<2.2
-
-# Testing (REMOVE in production but ok for now if needed)
-pytest==7.4.3
-pytest-asyncio==0.21.1
-httpx==0.25.2
+# ---------------- OPTIONAL (KEEP OUT FOR LIGHTWEIGHT BUILD) ----------------
+# pymongo
+# elasticsearch
+# pyspark
+# docker
+# kubernetes
+# playwright
+# pytest stack
+# kopf
