@@ -35,7 +35,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "NODE_OPTIONS=--max_old_space_size=1024 next build",
-    "start": "next start",
+    "start": "node server.js",
     "lint": "next lint"
   },
   "eslintConfig": {
