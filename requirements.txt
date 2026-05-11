@@ -1,42 +1,40 @@
-# ---------------- CORE API (OpenUBA UI backend) ----------------
+# IMPORTANT: pin Python version (fixes build failure)
+python-3.11.8
+
+# core backend (UI + API)
 fastapi==0.104.1
 uvicorn[standard]==0.24.0
 
-pydantic==2.5.0
-pydantic-settings==2.1.0
-email-validator==2.1.0.post1
-python-multipart==0.0.6
-
-# ---------------- DATABASE ----------------
+# data layer (kept minimal but stable)
 sqlalchemy==2.0.23
-psycopg2-binary==2.9.9
 alembic==1.12.1
+psycopg2-binary==2.9.9
+pymongo==3.10.1
 
-# ---------------- AUTH ----------------
+# security/auth
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
 bcrypt==4.0.1
+python-multipart==0.0.6
+email-validator==2.1.0.post1
 
-# ---------------- UTILITIES ----------------
+# utilities
 requests==2.31.0
 pyyaml==6.0.1
 python-slugify==8.0.4
 coloredlogs==10.0
 
-# ---------------- SCHEDULING / STREAMING ----------------
+# scheduling + streaming
 apscheduler==3.10.4
 sse-starlette==1.8.2
 
-# ---------------- DATA (lightweight, prebuilt wheels only) ----------------
-numpy==1.26.4
-pandas==2.1.4
-
-# ---------------- OPTIONAL (KEEP OUT FOR LIGHTWEIGHT BUILD) ----------------
-# pymongo
+# OPTIONAL (kept out of core build for lightweight deploy)
+# pandas
+# numpy
 # elasticsearch
 # pyspark
-# docker
-# kubernetes
-# playwright
-# pytest stack
-# kopf
+
+# testing (optional - remove in production if you want ultra-light)
+pytest==7.4.3
+pytest-asyncio==0.21.1
+httpx==0.25.2
